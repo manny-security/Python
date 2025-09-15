@@ -1,12 +1,11 @@
-#The function should return True if the value exists in the collection when we search starting from the starting index. Otherwise, it should return False.
+#Return True if the value exists in the collection, search from the starting index. Otherwise, return False.
 def includes(my_list,my_value,optional_index = 0):
     if type(my_list) is dict:
-        my_dict = my_list
-        return my_value in my_dict.values()
+        return my_value in my_list.values()
         
-    if optional_index > 1:
-        return my_value == my_list[optional_index]
-    return my_value in my_list
+    if optional_index == 0:
+        return my_value in my_list
+    return my_value == my_list[optional_index]
 
 
 print(includes([1, 2, 3], 1)) # True 
