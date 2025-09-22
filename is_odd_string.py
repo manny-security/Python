@@ -2,34 +2,14 @@ import string
 
 #returns true if sum of each character's position in the alphabet is odd.
 def is_odd_string(a_string):
-    alphabet_dict = {}
-    number_value = []
-    alphabet_key = []
-    total = 0
-
-    for char in string.ascii_lowercase:
-        alphabet_key.append(char)
-
-    for n in range(1,27):
-        number_value.append(n)
-
-    for key,value in zip(alphabet_key,number_value):
-        alphabet_dict[key] = value
-
-
-    #sums all values
-    for i in list(a_string):
-        total += alphabet_dict[i]
-
+    alphabet_dict = dict(zip(string.ascii_lowercase, range(1, 27)))
+    result = sum(alphabet_dict[i] for i in list(a_string.lower()))
+        
     #check for odd
-    if total % 2:
-        return True
-    
-    return False
+    return result % 2 == 1
 
-
-is_odd_string('a') # True
-is_odd_string('aaaa') # False
-is_odd_string('amazing') # True
-is_odd_string('veryfun') # True
-is_odd_string('veryfunny') # False
+print(is_odd_string('a')) # True
+print(is_odd_string('aaaa')) # False
+print(is_odd_string('Amazing')) # True
+print(is_odd_string('veryfun')) # True
+print(is_odd_string('veryfunny')) # False
